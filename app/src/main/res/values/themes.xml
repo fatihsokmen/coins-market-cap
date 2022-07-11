@@ -1,0 +1,16 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CoinsMarketCap" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="Theme.CoinsMarketCap" parent="Base.Theme.CoinsMarketCap" />
+
+    <style name="SparkView" parent="@style/spark_SparkView">
+        <item name="spark_lineColor">#34d87d</item>
+        <item name="spark_lineWidth">2dp</item>
+        <item name="spark_cornerRadius">4dp</item>
+        <item name="spark_fill">false</item>
+        <item name="spark_animateChanges">true</item>
+        <item name="spark_baseLineColor">@android:color/holo_green_light</item>
+        <item name="spark_baseLineWidth">5dp</item>
+    </style>
+</resources>

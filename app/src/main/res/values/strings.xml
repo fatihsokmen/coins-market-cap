@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Coins Market Cap</string>
+
+    <!-- Dashboard Resources -->
+    <string name="dashboard_title">Crypto Assets</string>
+    <string name="dashboard_action_try_again">Try Again</string>
+
+</resources>

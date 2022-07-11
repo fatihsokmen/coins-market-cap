@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.github.fatihsokmen.coinsmarketcap.presentation.dashboard.DashboardFragment"
+        android:label="@string/dashboard_title"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <dialog
+        android:id="@+id/chartFragment"
+        android:name="com.github.fatihsokmen.coinsmarketcap.presentation.chart.ChartFragment"
+        tools:layout="@layout/fragment_chart" />
+
+    <action
+        android:id="@+id/action_open_chart"
+        app:destination="@id/chartFragment">
+        <argument
+            android:name="parcel"
+            app:argType="com.github.fatihsokmen.coinsmarketcap.presentation.dashboard.CryptoAssetParcelable" />
+    </action>
+
+
+</navigation>
