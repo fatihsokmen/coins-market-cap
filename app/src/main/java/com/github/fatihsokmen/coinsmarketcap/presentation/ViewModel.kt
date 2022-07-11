@@ -7,6 +7,11 @@ import kotlinx.coroutines.launch
 
 open class ViewModel<EVENT> : androidx.lifecycle.ViewModel() {
     internal val container = ViewModelContainer<EVENT>()
+
+    override fun onCleared() {
+        super.onCleared()
+        container.clear()
+    }
 }
 
 internal suspend fun <EVENT> ViewModel<EVENT>.postEvent(event: EVENT) {
