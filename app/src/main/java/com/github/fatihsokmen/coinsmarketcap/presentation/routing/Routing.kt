@@ -9,11 +9,6 @@ import androidx.navigation.fragment.findNavController
 interface Route
 
 /**
- * Router definition
- */
-interface Router<ROUTE>
-
-/**
  * Dispatches a route to [AppRouter]
  */
 fun Fragment.handleRoute(route: Route) = AppRouter(findNavController()).navigate(route)
