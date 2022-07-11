@@ -3,7 +3,6 @@ package com.github.fatihsokmen.coinsmarketcap.presentation.chart
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.navigation.fragment.navArgs
 import com.github.fatihsokmen.coinsmarketcap.R
 import com.github.fatihsokmen.coinsmarketcap.databinding.FragmentChartBinding
 import com.github.fatihsokmen.coinsmarketcap.presentation.bindOnStart
