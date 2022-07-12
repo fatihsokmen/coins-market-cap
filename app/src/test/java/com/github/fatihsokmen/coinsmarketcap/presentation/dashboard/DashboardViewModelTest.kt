@@ -5,7 +5,6 @@ import app.cash.turbine.test
 import com.github.fatihsokmen.coinsmarketcap.MainCoroutineRule
 import com.github.fatihsokmen.coinsmarketcap.domain.ObserveCryptoAssetsUseCase
 import io.kotest.matchers.types.shouldBeInstanceOf
-import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
