@@ -11,8 +11,9 @@ class AppActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
+        with(ActivityMainBinding.inflate(layoutInflater)) {
+            setContentView(root)
+            setSupportActionBar(toolbar)
+        }
     }
 }

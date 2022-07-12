@@ -13,7 +13,10 @@ class JsonChartDeserializer : JsonDeserializer<CryptoAssetChartResponse?> {
         val data = json.asJsonObject.getAsJsonArray("chart")
         return CryptoAssetChartResponse(
             chart = data.map {
-                ChartEntryDto(time = it.asJsonArray[0].asLong, price = it.asJsonArray[1].asFloat)
+                ChartEntryDto(
+                    time = it.asJsonArray[0].asLong,
+                    price = it.asJsonArray[1].asFloat
+                )
             }
         )
     }

@@ -10,7 +10,6 @@
         <item name="spark_cornerRadius">4dp</item>
         <item name="spark_fill">false</item>
         <item name="spark_animateChanges">true</item>
-        <item name="spark_baseLineColor">@android:color/holo_green_light</item>
         <item name="spark_baseLineWidth">5dp</item>
     </style>
 </resources>

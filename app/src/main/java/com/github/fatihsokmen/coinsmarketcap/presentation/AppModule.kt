@@ -1,9 +1,6 @@
 package com.github.fatihsokmen.coinsmarketcap.presentation
 
-import com.github.fatihsokmen.coinsmarketcap.data.CryptoAssetRepository
-import com.github.fatihsokmen.coinsmarketcap.data.CryptoAssetApiService
-import com.github.fatihsokmen.coinsmarketcap.data.CryptoAssetChartResponse
-import com.github.fatihsokmen.coinsmarketcap.data.JsonChartDeserializer
+import com.github.fatihsokmen.coinsmarketcap.data.*
 import com.github.fatihsokmen.coinsmarketcap.domain.LoadChartDataUseCase
 import com.github.fatihsokmen.coinsmarketcap.domain.ObserveCryptoAssetsUseCase
 import com.github.fatihsokmen.coinsmarketcap.presentation.dashboard.DashboardViewModel
@@ -23,7 +20,9 @@ val appModule = module {
     single { provideRetrofit() }
 
     factory { get<Retrofit>().create(CryptoAssetApiService::class.java) }
-    factory { CryptoAssetRepository(get()) }
+    factory { CryptoAssetsPagingDataSource(get()) }
+    factory { CryptoAssetsRemoteDataSource(get()) }
+    factory { CryptoAssetRepository(get(), get()) }
     factory { ObserveCryptoAssetsUseCase(get()) }
     factory { LoadChartDataUseCase(get()) }
 

@@ -32,12 +32,12 @@ class CryptoAssetsAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(asset: CryptoAssetDomain) = with(binding) {
-            binding.assetName.text = asset.name
-            binding.assetRank.text = asset.rank
-            binding.assetSymbol.text = asset.symbol
-            binding.assetPrice.text = asset.price
-            Glide.with(binding.root.context).load(asset.icon).into(binding.assetIcon)
-            binding.root.setOnClickListener { callback(asset) }
+            assetName.text = asset.name
+            assetRank.text = asset.rank
+            assetSymbol.text = asset.symbol
+            assetPrice.text = asset.price
+            Glide.with(root.context).load(asset.icon).into(binding.assetIcon)
+            root.setOnClickListener { callback(asset) }
         }
     }
 

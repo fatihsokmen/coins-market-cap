@@ -13,7 +13,7 @@ class LoadChartDataUseCase(
 
     suspend fun execute(id: String) = withContext(dispatcher) {
         runCatching {
-            cryptoAssetRepository.loadCryptoAssetChart(id).chart.map {
+            cryptoAssetRepository.loadCryptoAssetChart(id).map {
                 CryptoAssetChartDomain(
                     time = it.time,
                     price = it.price

@@ -28,10 +28,7 @@ internal class LoadChartDataUseCaseTest {
                 mockk(relaxed = true),
                 mockk(relaxed = true)
             )
-
-            coEvery { repository.loadCryptoAssetChart("bitcoin") } returns CryptoAssetChartResponse(
-                chartData
-            )
+            coEvery { repository.loadCryptoAssetChart("bitcoin") } returns chartData
 
             val actual = sut.execute("bitcoin")
 

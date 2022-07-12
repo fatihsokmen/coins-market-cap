@@ -22,4 +22,9 @@ class ViewModelContainer<EVENT> {
     suspend fun postEvent(event: EVENT) = _event.send(event)
 
     suspend fun navigate(route: Route) = _route.send(route)
+
+    fun clear() {
+        _event.close()
+        _route.close()
+    }
 }
