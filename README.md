@@ -5,7 +5,8 @@ This is a simple app to show crypto asset's price, rank and chart
 Tech Stack:
 - Kotin & Coroutines & Flow
 - MVVM
-- Paging
+- Material3
+- Paging3
 - OkHttp & Retrofit
 - Koin
 - Glide
