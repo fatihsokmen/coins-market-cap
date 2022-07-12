@@ -9,10 +9,9 @@ Tech Stack:
 - MVVM
 - Material3
 - Paging3
-- OkHttp & Retrofit
+- OkHttp & Retrofit & Gson
 - Koin
 - Glide
-- Gson
 - Mockk & KoTest (Assertion)
 
 - Also Spark lib for drawing charts: https://github.com/robinhood/spark
