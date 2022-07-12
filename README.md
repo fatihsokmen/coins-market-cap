@@ -13,7 +13,7 @@ Tech Stack:
 - Koin
 - Glide
 - Gson
-- Mockk & KoTest
+- Mockk & KoTest (Assertion)
 
 - Also Spark lib for drawing charts: https://github.com/robinhood/spark
 
