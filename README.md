@@ -2,6 +2,8 @@
 
 This is a simple app to show crypto asset's price, rank and chart
 
+App uses following api as remote data source and caches pages in memory: https://documenter.getpostman.com/view/5734027/RzZ6Hzr3 
+
 Tech Stack:
 - Kotin & Coroutines & Flow
 - MVVM
