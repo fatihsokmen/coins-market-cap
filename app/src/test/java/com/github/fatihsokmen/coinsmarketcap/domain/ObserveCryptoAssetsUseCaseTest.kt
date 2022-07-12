@@ -23,13 +23,13 @@ internal class ObserveCryptoAssetsUseCaseTest {
     @Test
     fun `GIVEN use case WHEN assets data requested THEN repository should load first page`() =
         runTest {
-            val page = PagingData.from(listOf<CryptoAssetDto>(mockk(), mockk(), mockk()))
-            val flow = flowOf(page)
+            val pagingData = mockk<PagingData<CryptoAssetDto>>(relaxed = true)
+            val flow = flowOf(pagingData)
             coEvery { repository.loadCryptoAssets() } returns flow
 
             sut.execute().test {
-                awaitItem().shouldNotBe(null)
-                cancelAndConsumeRemainingEvents()
+                awaitItem() shouldNotBe null
+                awaitComplete()
             }
         }
 }

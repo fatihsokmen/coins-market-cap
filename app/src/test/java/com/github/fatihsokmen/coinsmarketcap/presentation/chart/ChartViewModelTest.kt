@@ -3,7 +3,7 @@ package com.github.fatihsokmen.coinsmarketcap.presentation.chart
 import app.cash.turbine.test
 import com.github.fatihsokmen.coinsmarketcap.domain.LoadChartDataUseCase
 import com.github.fatihsokmen.coinsmarketcap.presentation.dashboard.CryptoAssetParcelable
-import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.collections.shouldContainInOrder
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -25,8 +25,8 @@ internal class ChartViewModelTest {
         coEvery { loadChartDataUseCase.execute("bitcoin") } returns Result.success(response)
 
         sut.chartData.test {
-            awaitItem() shouldHaveSize response.size
-            cancelAndConsumeRemainingEvents()
+            awaitItem() shouldContainInOrder response
+            awaitComplete()
         }
     }
 

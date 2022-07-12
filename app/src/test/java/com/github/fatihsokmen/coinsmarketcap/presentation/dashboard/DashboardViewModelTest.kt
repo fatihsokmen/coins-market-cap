@@ -4,10 +4,12 @@ import androidx.paging.PagingData
 import app.cash.turbine.test
 import com.github.fatihsokmen.coinsmarketcap.MainCoroutineRule
 import com.github.fatihsokmen.coinsmarketcap.domain.ObserveCryptoAssetsUseCase
+import io.kotest.matchers.types.shouldBeInstanceOf
+import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -20,23 +22,24 @@ internal class DashboardViewModelTest {
     val rule = MainCoroutineRule()
 
     private lateinit var observeCryptoAssetsUseCase: ObserveCryptoAssetsUseCase
-    private lateinit var sut: DashboardViewModel
 
     @Before
     fun setup() {
-        observeCryptoAssetsUseCase = mockk<ObserveCryptoAssetsUseCase>(relaxed = true)
-        sut = DashboardViewModel(observeCryptoAssetsUseCase)
+        observeCryptoAssetsUseCase = mockk(relaxed = true) {
+            every { execute() } returns flowOf(
+                PagingData.from(listOf(mockk(), mockk(), mockk()))
+            )
+        }
+
     }
 
     @Test
     fun `GIVEN view model WHEN items observed THEN use case should load data`() = runTest {
-//        val sharedFlow = MutableSharedFlow<PagingData<CryptoAssetDomain>>()
-//        every { observeCryptoAssetsUseCase.execute() } returns sharedFlow
-//
-//        sharedFlow.tryEmit(PagingData.empty())
-//        sut.items.test {
-//            awaitItem() shouldNotBe null
-//        }
+        val sut = DashboardViewModel(observeCryptoAssetsUseCase)
+
+        sut.items.test {
+            awaitItem().shouldBeInstanceOf<PagingData<CryptoAssetDomain>>()
+        }
     }
 
 }
