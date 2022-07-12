@@ -40,7 +40,7 @@ internal class CryptoAssetsPagingDataSourceTest {
         }
 
     @Test
-    fun `GIVEN2 paging data source WHEN load is requested THEN should load data from api`() =
+    fun `GIVEN paging data source WHEN load is requested AND throws exception THEN error returned`() =
         runTest {
             val exception = IOException("connection error")
             coEvery { api.getCryptoAssets(0, 50, "USD") } throws exception
