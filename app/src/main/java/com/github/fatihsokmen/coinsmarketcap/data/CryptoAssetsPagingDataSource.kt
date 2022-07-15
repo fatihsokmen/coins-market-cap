@@ -33,3 +33,11 @@ class CryptoAssetsPagingDataSource(private val api: CryptoAssetApiService) :
         const val PAGING_SIZE: Int = 50
     }
 }
+
+class CryptoAssetsPagingDataSourceFactory(
+    private val api: CryptoAssetApiService
+) {
+
+    operator fun invoke(): (() -> PagingSource<Int, CryptoAssetDto>) =
+        { CryptoAssetsPagingDataSource(api) }
+}

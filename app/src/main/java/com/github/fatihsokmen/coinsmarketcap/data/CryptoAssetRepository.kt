@@ -5,7 +5,7 @@ import androidx.paging.PagingConfig
 
 class CryptoAssetRepository(
     private val remoteDataSource: CryptoAssetsRemoteDataSource,
-    private val pagingDataSource: CryptoAssetsPagingDataSource
+    private val pagingDataSourceFactory: CryptoAssetsPagingDataSourceFactory
 ) {
     fun loadCryptoAssets() =
         Pager(
@@ -14,7 +14,7 @@ class CryptoAssetRepository(
                 enablePlaceholders = false,
                 initialLoadSize = CryptoAssetsPagingDataSource.PAGING_SIZE * 2
             ),
-            pagingSourceFactory = { pagingDataSource },
+            pagingSourceFactory = pagingDataSourceFactory(),
             initialKey = 0
         ).flow
 

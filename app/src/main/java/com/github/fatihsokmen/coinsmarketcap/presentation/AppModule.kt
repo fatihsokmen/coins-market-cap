@@ -20,7 +20,7 @@ val appModule = module {
     single { provideRetrofit() }
 
     factory { get<Retrofit>().create(CryptoAssetApiService::class.java) }
-    factory { CryptoAssetsPagingDataSource(get()) }
+    factory { CryptoAssetsPagingDataSourceFactory(get()) }
     factory { CryptoAssetsRemoteDataSource(get()) }
     factory { CryptoAssetRepository(get(), get()) }
     factory { ObserveCryptoAssetsUseCase(get()) }
